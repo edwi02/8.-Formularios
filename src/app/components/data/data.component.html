@@ -59,6 +59,27 @@
 				</div>
 			</div>
 
+
+			<!-- Pasatiempos  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputCorreo">Pasatiempos</label>
+				<button (click)="agregarPasatiempo()"
+								class=" col-md-2 btn btn-primary"
+								type="button"
+								name="button">
+								Nuevo
+				</button>
+
+				<div class="col-sm-8" formArrayName="pasatiempos">
+					<input 	*ngFor="let pasatiempo of forma.controls['pasatiempos'].controls; let i = index"
+									class="form-control"
+									type="text"
+									name=""
+									value=""
+									[formControlName]="i">
+				</div>
+
+			</div>
 			<!-- Templaet correo -->
 			<!-- <div class="form-group row my-1">
 				<label class="col-sm-2 col-form-label" for="inputCorreo">Correo</label>
@@ -89,7 +110,8 @@
       <div class="form-group row">
         <label class="col-md-2 col-form-label">&nbsp;</label>
         <div class="input-group col-md-8">
-          <button [disabled]="!forma.valid"
+					<!-- [disabled]="!forma.valid"  -->
+          <button
                   type="submit"
                   class="btn btn-outline-primary">
             Guardar

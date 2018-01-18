@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-data',
@@ -16,7 +16,8 @@ export class DataComponent {
       nombre: "Edwin",
       apellido: "Quintero"
     },
-    correo: "edwin@gmail.com"
+    correo: "edwin@gmail.com",
+    pasatiempos:["Corre", "Ver Pelis", "Jugar"]
 
   }
 
@@ -58,11 +59,20 @@ export class DataComponent {
                                    [
                                       Validators.required,
                                       Validators.pattern('^[a-zA-Z]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
-                                    ])
+                                    ]),
+      'pasatiempos': new FormArray([
+        new FormControl('Correr', Validators.required )
+      ])
     });
 
     //Cargar los datos del objeto en el formulario 8Opción 2)
-    this.forma.setValue( this.usuario );
+    //this.forma.setValue( this.usuario );
+  }
+
+  agregarPasatiempo(){
+    (<FormArray>this.forma.controls['pasatiempos']).push(
+      new FormControl('', Validators.required )
+    )
   }
 
   guardarCambios(){
