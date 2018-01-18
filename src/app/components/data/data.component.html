@@ -1,3 +1,102 @@
-<p>
-  data works!
-</p>
+<h4> Formularios <small>data</small> </h4>
+<hr>
+
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()" novalidate>
+
+		<div formGroupName="nombreCompleto">
+
+			<!-- Nombre -->
+			<div class="form-group row" >
+				<label class="col-sm-2 col-form-label" for="inputNombre">Nombre</label>
+				<div class="col-sm-10">
+					<!-- {'is-invalid': !forma.get('nombreCompleto.nombre').valid}" -->
+					<input  [ngClass]="{'is-invalid': !forma.controls['nombreCompleto'].controls['nombre'].valid}"
+                  class="form-control"
+                  type="text"
+                  id="inputNombre" name="nombre"
+                  placeholder="Nombre"
+                  formControlName="nombre" />
+
+
+						<div class="invalid-feedback">
+							  <!-- <div *ngIf="forma.controls['nombre'].errors?.required"> -->
+							 	<div *ngIf="forma.get('nombreCompleto.nombre').errors?.required">
+								 El nombre es necesario.
+							  </div>
+							 <div *ngIf="forma.get('nombreCompleto.nombre').errors?.minlength">
+								 Por lo menos 3 caracteres.
+							 </div>
+
+						 	</div>
+
+				</div>
+			</div>
+
+			<!-- Apellido  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputApellido">Apellido</label>
+				<div class="col-sm-10">
+					<input class="form-control"
+                 type="text"
+                 id="inputApellido" name="apellido"
+                 placeholder="Apellido"
+                 formControlName="apellido" />
+				</div>
+			</div>
+
+		</div>
+
+			<!-- Correo  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputCorreo">Correo</label>
+				<div class="col-sm-10">
+					<input class="form-control"
+                 type="email"
+                 id="inputCorreo"
+                 name="correo"
+                 placeholder="Correo"
+                 formControlName="correo" />
+				</div>
+			</div>
+
+			<!-- Templaet correo -->
+			<!-- <div class="form-group row my-1">
+				<label class="col-sm-2 col-form-label" for="inputCorreo">Correo</label>
+				<div class="col-sm-10 my-1">
+				<label class="sr-only" for="inlineFormInputGroupUsername">Correo</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+					  <div class="input-group-text">@</div>
+					</div>
+					<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Correo electr&oacute;nico">
+				</div>
+				</div>
+			</div> -->
+
+			<!-- Radio Buttons  -->
+			<!-- <div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="opcionA">Opciones</label>
+				<div class="custom-control custom-radio custom-control-inline">
+				  <input type="radio" id="opcionA" name="opcionA" class="custom-control-input">
+				  <label class="custom-control-label" for="opcionA">Opcion A</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline">
+				  <input type="radio" id="opcionB" name="opcionA" class="custom-control-input">
+				  <label class="custom-control-label" for="opcionB">Opcion B</label>
+				</div>
+			</div> -->
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+          <button [disabled]="!forma.valid"
+                  type="submit"
+                  class="btn btn-outline-primary">
+            Guardar
+          </button>
+        </div>
+      </div>
+
+    {{ forma.valid }}
+
+	</form>
