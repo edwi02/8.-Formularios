@@ -84,7 +84,23 @@ export class DataComponent {
                                     // está en otro contexto, ahora es igual a
                                     //"this "" Eso indica que al nencesitarlo en
                                     // la función se coloca "this"
-  ])
+  ]);
+
+  // this.forma.valueChanges
+  //       .subscribe( data=> {
+  //         console.log( data )
+  //       });
+
+  this.forma.controls['userName'].valueChanges
+        .subscribe( data=> {
+          console.log( data )
+        });
+
+  this.forma.controls['userName'].statusChanges
+        .subscribe( data=> {
+          console.log( data )
+        });
+
   }
 
   agregarPasatiempo(){
