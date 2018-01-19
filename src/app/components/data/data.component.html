@@ -59,6 +59,45 @@
 				</div>
 			</div>
 
+			<!-- UserName  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputUsuario1">Usuario</label>
+				<div class="col-sm-10">
+					<input class="form-control"
+								 type="text"
+								 id="inputUsuario1"
+								 name="usuario1"
+								 placeholder="Nombre usuario"
+								 formControlName="userName" />
+				</div>
+			</div>
+
+			<!-- Password 1  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputPassword1">Contraseña</label>
+				<div class="col-sm-10">
+					<input class="form-control"
+                 type="password"
+                 id="inputPassword1"
+                 name="password1"
+                 placeholder="Contraseña"
+                 formControlName="password1" />
+				</div>
+			</div>
+
+			<!-- Password 2  -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" for="inputPassword2">Repetir contraseña</label>
+				<div class="col-sm-10">
+					<input class="form-control"
+                 type="password"
+                 id="inputPassword2"
+                 name="password2"
+                 placeholder="Repetir contraseña"
+                 formControlName="password2" />
+				</div>
+			</div>
+
 
 			<!-- Pasatiempos  -->
 			<div class="form-group row">
@@ -120,5 +159,7 @@
       </div>
 
     {{ forma.valid }}
+		<br>
+		{{ forma.status }}
 
 	</form>
